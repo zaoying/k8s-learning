@@ -1,0 +1,20 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: eureka
+  namespace: spring-cloud
+  annotations:
+    nginx.ingress.kubernetes.io/ingress.class: nginx
+spec:
+  tls:
+  - hosts:
+    - eureka.spring.cloud
+    secretName: spring-cloud-secret-tls
+  rules:
+  - host: eureka.spring.cloud
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: eureka
+          servicePort: 8761

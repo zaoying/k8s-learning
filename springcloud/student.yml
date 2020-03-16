@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: student-deployment
+  namespace: spring-cloud
+  labels:
+    app: student
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: student
+  template:
+    metadata:
+      labels:
+        app: student
+    spec:
+      containers:
+      - name: student
+        image: localhost:32000/datacenter-student:latest
+        imagePullPolicy: IfNotPresent
+        env:
+        - name: MYSQL_ADDRESS
+          value: mysql:3306
+        - name: MYSQL_PASSWORD
+          value: bocloud@2019
+        ports:
+        - containerPort: 8083
+

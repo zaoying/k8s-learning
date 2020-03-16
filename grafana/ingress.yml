@@ -1,0 +1,20 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: grafana
+  namespace: monitoring
+  annotations:
+    nginx.ingress.kubernetes.io/ingress.class: nginx
+spec:
+  tls:
+  - hosts:
+    - grafana.local
+    secretName: grafana-secret-tls
+  rules:
+  - host: grafana.local
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: grafana
+          servicePort: 3000
