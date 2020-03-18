@@ -2,4 +2,4 @@ openssl genrsa -aes128 -out server.key 2048
 
 openssl req -newkey rsa:2048 -nodes -keyout server.key -x509 -days 3650 -out server.crt
 
-kubectl create secret tls dashboard-secret-tls --cert=server.crt --key=server.key -n kube-system
+kubectl create secret tls dashboard-secret-tls --cert=server.crt --key=server.key -n kubernetes-dashboard
