@@ -33,8 +33,8 @@ spec:
     spec:
       containers:
       - name: eureka
-        image: localhost:32000/datacenter-eureka:latest
-        imagePullPolicy: Always
+        image: datacenter-eureka:latest
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8761
 
