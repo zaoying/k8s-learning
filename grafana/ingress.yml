@@ -2,14 +2,14 @@ apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   name: grafana
-  namespace: monitoring
+  namespace: prometheus-k8s
   annotations:
     nginx.ingress.kubernetes.io/ingress.class: nginx
 spec:
   tls:
   - hosts:
     - grafana.local
-    secretName: grafana-secret-tls
+    secretName: prometheus-secret-tls
   rules:
   - host: grafana.local
     http:

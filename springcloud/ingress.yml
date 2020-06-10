@@ -16,5 +16,5 @@ spec:
       paths:
       - path: /
         backend:
-          serviceName: eureka
+          serviceName: datacenter
           servicePort: 8761

@@ -2,7 +2,7 @@ apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   name: prometheus-k8s
-  namespace: monitoring
+  namespace: prometheus-k8s
   annotations:
     nginx.ingress.kubernetes.io/ingress.class: nginx
 spec:
@@ -16,5 +16,5 @@ spec:
       paths:
       - path: /
         backend:
-          serviceName: prometheus-k8s
+          serviceName: prometheus
           servicePort: 9090
